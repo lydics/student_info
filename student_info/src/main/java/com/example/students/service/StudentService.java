@@ -1,8 +1,9 @@
-package com.example.student_info.service;
+package com.example.students.service;
 
 
-import com.example.student_info.model.studentModel;
-import com.example.student_info.repo.studentRepository;
+import com.example.students.model.studentModel;
+import com.example.students.repo.studentRepository;
+
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

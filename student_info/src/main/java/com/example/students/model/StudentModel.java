@@ -1,4 +1,4 @@
-package com.example.student_info.model;
+package com.example.students.model;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;

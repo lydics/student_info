@@ -1,4 +1,4 @@
-package com.example.student_info.security;
+package com.example.students.security;
 
 
 import org.springframework.context.annotation.Bean;

@@ -1,7 +1,8 @@
-package com.example.student_info.controller;
+package com.example.students.controller;
 
-import com.example.student_info.model.studentModel;
-import com.example.student_info.service.studentService;
+import com.example.students.model.studentModel;
+import com.example.students.service.studentService;
+
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
