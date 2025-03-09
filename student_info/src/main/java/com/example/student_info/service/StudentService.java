@@ -1,8 +1,8 @@
 package com.example.student_info.service;
 
 
-import com.example.student_info.model.StudentModel;
-import com.example.student_info.repo.StudentRepository;
+import com.example.student_info.model.studentModel;
+import com.example.student_info.repo.studentRepository;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -11,24 +11,24 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class StudentService {
+public class studentService {
 
  @Autowired
- private StudentRepository studentRepository;
+ private studentRepository studentRepository;
 
- public List<StudentModel> getAllStudents() {
+ public List<studentModel> getAllStudents() {
      return studentRepository.findAll();
  }
 
- public Optional<StudentModel> getStudentById(int studentId) {
+ public Optional<studentModel> getStudentById(int studentId) {
      return studentRepository.findById(studentId);
  }
 
- public StudentModel createStudent(@Valid StudentModel student) {
+ public studentModel createStudent(@Valid studentModel student) {
      return studentRepository.save(student);
  }
 
- public StudentModel updateStudent(int studentId, @Valid StudentModel studentDetails) {
+ public studentModel updateStudent(int studentId, @Valid studentModel studentDetails) {
      return studentRepository.findById(studentId).map(student -> {
          student.setRegisterNumber(studentDetails.getRegisterNumber());
          student.setPlaced(studentDetails.isPlaced());

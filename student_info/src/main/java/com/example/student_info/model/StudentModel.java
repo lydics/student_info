@@ -1,190 +1,188 @@
 package com.example.student_info.model;
 
-
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
-import java.time.LocalDateTime;
+import java.sql.Timestamp;
 
 @Entity
 @Table(name = "students")
-public class StudentModel {
+public class studentModel {
 
- @Id
- @GeneratedValue(strategy = GenerationType.IDENTITY)
- private int studentId;
- 
- @NotBlank
- private String registerNumber;
- 
- private boolean isPlaced;
- private int courseId;
- public int getStudentId() {
-	return studentId;
-}
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int studentId;
+    
+    @NotBlank
+    private String registerNumber;
+    
+    private boolean isPlaced;
+    private int courseId;
+    private int departmentId;
+    private int batchId;
+    private int mentorId;
+    private int supervisorId;
+    
+    @Min(0)
+    @Max(100)
+    private double sslc;
+    
+    @Min(0)
+    @Max(100)
+    private double hsc;
+    
+    private double diploma;
+    private int arrears;
+    private boolean isAptitude;
+    private boolean isCoding;
+    private boolean isActive;
+    
+    private Timestamp createdAt;
+    private Timestamp updatedAt;
 
-public void setStudentId(int studentId) {
-	this.studentId = studentId;
-}
+    @PrePersist
+    protected void onCreate() {
+        createdAt = new Timestamp(System.currentTimeMillis());
+    }
 
-public String getRegisterNumber() {
-	return registerNumber;
-}
+    @PreUpdate
+    protected void onUpdate() {
+        updatedAt = new Timestamp(System.currentTimeMillis());
+    }
 
-public void setRegisterNumber(String registerNumber) {
-	this.registerNumber = registerNumber;
-}
+    // Getters and Setters
+    public int getStudentId() {
+        return studentId;
+    }
 
-public boolean isPlaced() {
-	return isPlaced;
-}
+    public void setStudentId(int studentId) {
+        this.studentId = studentId;
+    }
 
-public void setPlaced(boolean isPlaced) {
-	this.isPlaced = isPlaced;
-}
+    public String getRegisterNumber() {
+        return registerNumber;
+    }
 
-public int getCourseId() {
-	return courseId;
-}
+    public void setRegisterNumber(String registerNumber) {
+        this.registerNumber = registerNumber;
+    }
 
-public void setCourseId(int courseId) {
-	this.courseId = courseId;
-}
+    public boolean isPlaced() {
+        return isPlaced;
+    }
 
-public int getDepartmentId() {
-	return departmentId;
-}
+    public void setPlaced(boolean isPlaced) {
+        this.isPlaced = isPlaced;
+    }
 
-public void setDepartmentId(int departmentId) {
-	this.departmentId = departmentId;
-}
+    public int getCourseId() {
+        return courseId;
+    }
 
-public int getBatchId() {
-	return batchId;
-}
+    public void setCourseId(int courseId) {
+        this.courseId = courseId;
+    }
 
-public void setBatchId(int batchId) {
-	this.batchId = batchId;
-}
+    public int getDepartmentId() {
+        return departmentId;
+    }
 
-public int getMentorId() {
-	return mentorId;
-}
+    public void setDepartmentId(int departmentId) {
+        this.departmentId = departmentId;
+    }
 
-public void setMentorId(int mentorId) {
-	this.mentorId = mentorId;
-}
+    public int getBatchId() {
+        return batchId;
+    }
 
-public int getSupervisorId() {
-	return supervisorId;
-}
+    public void setBatchId(int batchId) {
+        this.batchId = batchId;
+    }
 
-public void setSupervisorId(int supervisorId) {
-	this.supervisorId = supervisorId;
-}
+    public int getMentorId() {
+        return mentorId;
+    }
 
-public double getSslc() {
-	return sslc;
-}
+    public void setMentorId(int mentorId) {
+        this.mentorId = mentorId;
+    }
 
-public void setSslc(double sslc) {
-	this.sslc = sslc;
-}
+    public int getSupervisorId() {
+        return supervisorId;
+    }
 
-public double getHsc() {
-	return hsc;
-}
+    public void setSupervisorId(int supervisorId) {
+        this.supervisorId = supervisorId;
+    }
 
-public void setHsc(double hsc) {
-	this.hsc = hsc;
-}
+    public double getSslc() {
+        return sslc;
+    }
 
-public double getDiploma() {
-	return diploma;
-}
+    public void setSslc(double sslc) {
+        this.sslc = sslc;
+    }
 
-public void setDiploma(double diploma) {
-	this.diploma = diploma;
-}
+    public double getHsc() {
+        return hsc;
+    }
 
-public int getArrears() {
-	return arrears;
-}
+    public void setHsc(double hsc) {
+        this.hsc = hsc;
+    }
 
-public void setArrears(int arrears) {
-	this.arrears = arrears;
-}
+    public double getDiploma() {
+        return diploma;
+    }
 
-public boolean isAptitude() {
-	return isAptitude;
-}
+    public void setDiploma(double diploma) {
+        this.diploma = diploma;
+    }
 
-public void setAptitude(boolean isAptitude) {
-	this.isAptitude = isAptitude;
-}
+    public int getArrears() {
+        return arrears;
+    }
 
-public boolean isCoding() {
-	return isCoding;
-}
+    public void setArrears(int arrears) {
+        this.arrears = arrears;
+    }
 
-public void setCoding(boolean isCoding) {
-	this.isCoding = isCoding;
-}
+    public boolean isAptitude() {
+        return isAptitude;
+    }
 
-public boolean isActive() {
-	return isActive;
-}
+    public void setAptitude(boolean isAptitude) {
+        this.isAptitude = isAptitude;
+    }
 
-public void setActive(boolean isActive) {
-	this.isActive = isActive;
-}
+    public boolean isCoding() {
+        return isCoding;
+    }
 
-public LocalDateTime getCreatedAt() {
-	return createdAt;
-}
+    public void setCoding(boolean isCoding) {
+        this.isCoding = isCoding;
+    }
 
-public void setCreatedAt(LocalDateTime createdAt) {
-	this.createdAt = createdAt;
-}
+    public boolean isActive() {
+        return isActive;
+    }
 
-public LocalDateTime getUpdatedAt() {
-	return updatedAt;
-}
+    public void setActive(boolean isActive) {
+        this.isActive = isActive;
+    }
 
-public void setUpdatedAt(LocalDateTime updatedAt) {
-	this.updatedAt = updatedAt;
-}
+    public Timestamp getCreatedAt() {
+        return createdAt;
+    }
 
-private int departmentId;
- private int batchId;
- private int mentorId;
- private int supervisorId;
- 
- @Min(0)
- @Max(100)
- private double sslc;
- 
- @Min(0)
- @Max(100)
- private double hsc;
- 
- private double diploma;
- private int arrears;
- private boolean isAptitude;
- private boolean isCoding;
- private boolean isActive;
- 
- private LocalDateTime createdAt;
- private LocalDateTime updatedAt;
+    public void setCreatedAt(Timestamp createdAt) {
+        this.createdAt = createdAt;
+    }
 
- @PrePersist
- protected void onCreate() {
-     createdAt = LocalDateTime.now();
- }
+    public Timestamp getUpdatedAt() {
+        return updatedAt;
+    }
 
- @PreUpdate
- protected void onUpdate() {
-     updatedAt = LocalDateTime.now();
- }
-
- // Getters and Setters
+    public void setUpdatedAt(Timestamp updatedAt) {
+        this.updatedAt = updatedAt;
+    }
 }
